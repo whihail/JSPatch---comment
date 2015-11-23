@@ -7,7 +7,7 @@ var global = this
   
   
   /**
-   * 将oc方法名转化成js的方法名  在此处并没有起到作用，可能作者bang哥忘记去掉啦！已经删除并 pull request，bang也merag啦
+   * 将OC方法名转化成js的方法名  在此处并没有起到作用，可能作者bang哥忘记去掉啦！已经删除并 pull request，bang也merag啦
    **/
   var _methodNameOCToJS = function(name) {
     name = name.replace(/\:/g, '_')   //利用正则将所有“：”字符替换成“_”
@@ -18,17 +18,17 @@ var global = this
   }
 
   /**
-   * 将oc对象遍历 format 为js对象
+   * 将OC对象遍历 format 为js对象
    **/
   var _formatOCToJS = function(obj) {
     if (obj === undefined || obj === null) return false
     if (typeof obj == "object") {     //如果是js对象
-      if (obj.__obj) return obj        //如果这个对象由oc对象转化而来
+      if (obj.__obj) return obj        //如果这个对象由OC对象转化而来
       if (obj.__isNil) return false    //如果这个对象为空
     }
     if (obj instanceof Array) {       //如果这个对象为Array的衍生对象
       var ret = []
-      obj.forEach(function(o) {       //遍历这个Array，将每一个oc成员对象转化为js对象,放入新Array
+      obj.forEach(function(o) {       //遍历这个Array，将每一个OC成员对象转化为js对象,放入新Array
         ret.push(_formatOCToJS(o))
       })
       return ret
@@ -36,7 +36,7 @@ var global = this
     if (obj instanceof Function) {      //如果这个obj对象是Function，format 成以下function
         return function() {
             var args = Array.prototype.slice.call(arguments)     //将参数arguments转化为Array对象
-            var formatedArgs = _OC_formatJSToOC(args)            //通过调用oc，将参数args数组转化为OC对象
+            var formatedArgs = _OC_formatJSToOC(args)            //通过调用OC方法，将参数args数组转化为OC对象
             for (var i = 0; i < args.length; i++) {
                 if (args[i] === null || args[i] === undefined || args[i] === false) {
                 formatedArgs.splice(i, 1, undefined)
@@ -44,7 +44,7 @@ var global = this
                 formatedArgs.splice(i, 1, null)
                 }
             }
-            return _OC_formatOCToJS(obj.apply(obj, formatedArgs))        //执行obj方法，并调用OC中的方法将返回值format成js对象
+            return _OC_formatOCToJS(obj.apply(obj, formatedArgs))        //执行obj方法，并调用OC中的方法将返回值format成js格式对象
         }
     }
     if (obj instanceof Object) {            //如果obj是Object的衍生对象，则通过递归将obj对象的每个属性对象都转化为js对象
@@ -59,7 +59,7 @@ var global = this
   
   
   /**
-   *  执行oc方法，并将返回值转化为js对象
+   *  执行OC方法，并将返回值转化为js对象
    */
   var _methodFunc = function(instance, clsName, methodName, args, isSuper, isPerformSelector) {
     var selectorName = methodName
@@ -74,7 +74,7 @@ var global = this
     }
     var ret = instance ? _OC_callI(instance, selectorName, args, isSuper):
                          _OC_callC(clsName, selectorName, args)          //如果instance值为YES，则为实例对象，否则为类对象
-    return _formatOCToJS(ret)            //将调用oc方法的返回值转化为js对象 返回
+    return _formatOCToJS(ret)            //将调用OC方法的返回值转化为js对象 返回
   }
 
   
@@ -144,7 +144,7 @@ var global = this
 
   
   /**
-   * 将js方法用newMethods对象以newMethods[newMethods] = [方法参数个数,方法体对象]的结构保存
+   * 将js方法用newMethods对象以newMethods[methodName] = [方法参数个数,方法体对象]的结构保存
    */
   var _formatDefineMethods = function(methods, newMethods) {
     for (var methodName in methods) {
@@ -160,7 +160,7 @@ var global = this
             ret = originMethod.apply(originMethod, args)
             global.self = lastSelf
           } catch(e) {
-            _OC_catch(e.message, e.stack)   //调用oc的catch处理
+            _OC_catch(e.message, e.stack)   //调用OC的catch处理
           }
           return ret             //将jsFunction执行的返回值返回给OC，如无返回值则ret为undefined
         }]    //将新方法以[function参数个数，function对象]的形式赋值给newMethods
@@ -170,16 +170,16 @@ var global = this
 
   
   /**
-   * 替换类方法和实例方法，定义defineClass对象。
+   * 定义defineClass方法对象，作用是替换类方法和实例方法，
    */
   global.defineClass = function(declaration, instMethods, clsMethods) {
     var newInstMethods = {}, newClsMethods = {}
-    _formatDefineMethods(instMethods, newInstMethods)   //替换实例方法
-    _formatDefineMethods(clsMethods, newClsMethods)     //替换类方法
+    _formatDefineMethods(instMethods, newInstMethods)   //通过instMethods内容以 newInstMethods[methodName] = [方法参数个数,方法体对象]的结构保存在到 newClsMethods中
+    _formatDefineMethods(clsMethods, newClsMethods)     //通过clsMethods内容以 newClsMethods[methodName] = [方法参数个数,方法体对象]的结构保存在到 newClsMethods中
 
-    var ret = _OC_defineClass(declaration, newInstMethods, newClsMethods)  //调用OC代码对方法进行替换操作
+    var ret = _OC_defineClass(declaration, newInstMethods, newClsMethods)  //调用OC代码对方法实现进行替换等操作
 
-    return require(ret["cls"])   //将oc中返回的类名require标记为类对象
+    return require(ret["cls"])   //将OC中返回的类名require标记为类对象
   }
 
   /**
@@ -200,7 +200,7 @@ var global = this
   
   
   /**
-   *  打印日志模块
+   *  封装打印OC日志模块
    */
   if (global.console) {
     var jsLogger = console.log;
