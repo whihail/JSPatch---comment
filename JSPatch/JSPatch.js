@@ -105,14 +105,14 @@ var global = this
           var args = Array.prototype.slice.call(arguments)       //将参数转化为Array
           return _methodFunc(self.__obj, self.__clsName, args[0], args.splice(1), self.__isSuper, true)
         }
-      } else if (methodName == 'performSelectorInOC') {   //处理多线程情况，直接在OC中调用。
+      } else if (methodName == 'performSelectorInOC') {   //处理多线程情况，脱离 JavaScriptCore 的锁后才在OC中执行
         return function(){
           var args = Array.prototype.slice.call(arguments)
           return {__isPerformInOC:1, obj:self.__obj, clsName:self.__clsName, sel: args[0], args: args[1], cb: args[2]}
         }
       }
     }
-    return function(){             //执行__c()后，返回值为一个jsFunction，返回值为_methodFunc()执行结果
+    return function(){             //执行__c()后，返回值为一个jsFunction，此jsFunction返回值为_methodFunc()执行结果
       var args = Array.prototype.slice.call(arguments)
       return _methodFunc(self.__obj, self.__clsName, methodName, args, self.__isSuper)
     }

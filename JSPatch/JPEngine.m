@@ -88,6 +88,8 @@ static NSMutableDictionary *registeredStruct;
         return;
     }
     
+    
+    
     JSContext *context = [[JSContext alloc] init];
     
     /**
@@ -854,7 +856,7 @@ static void overrideMethod(Class cls, NSString *selectorName, JSValue *function,
 static id callSelector(NSString *className, NSString *selectorName, JSValue *arguments, JSValue *instance, BOOL isSuper)
 {
     if (instance) {
-        instance = formatJSToOC(instance);
+        instance = formatJSToOC(instance); //将JSValue类型对象转成id类型OC对象
         if (!instance || instance == _nilObj) return @{@"__isNil": @(YES)};
     }
     id argumentsObj = formatJSToOC(arguments);
@@ -895,7 +897,7 @@ static id callSelector(NSString *className, NSString *selectorName, JSValue *arg
     if (!_JSMethodSignatureCache) {     //使用_JSMethodSignatureCache保存方法的签名，起到缓存的作用，在反复调用统一SEL时减少资源开销
         _JSMethodSignatureCache = [[NSMutableDictionary alloc]init];
     }
-    if (instance) {
+    if (instance) {    // 设置invocation的Target参数
         [_JSMethodSignatureLock lock];
         if (!_JSMethodSignatureCache[cls]) {
             _JSMethodSignatureCache[(id<NSCopying>)cls] = [[NSMutableDictionary alloc]init];
@@ -915,10 +917,10 @@ static id callSelector(NSString *className, NSString *selectorName, JSValue *arg
         invocation= [NSInvocation invocationWithMethodSignature:methodSignature];
         [invocation setTarget:cls];
     }
-    [invocation setSelector:selector];
+    [invocation setSelector:selector];  // 设置invocation的selector参数
     
     NSUInteger numberOfArguments = methodSignature.numberOfArguments;
-    for (NSUInteger i = 2; i < numberOfArguments; i++) {    //invocation的第0个argument是target,第1个是SEL，所以从第2个开始取参数的类型编码
+    for (NSUInteger i = 2; i < numberOfArguments; i++) {    //invocation的第0个argument是target,第1个是SEL，所以从第2个开始取参数的类型编码，设置invocation的参数
         const char *argumentType = [methodSignature getArgumentTypeAtIndex:i];
         id valObj = argumentsObj[i-2];
         switch (argumentType[0] == 'r' ? argumentType[1] : argumentType[0]) {
@@ -1023,8 +1025,8 @@ static id callSelector(NSString *className, NSString *selectorName, JSValue *arg
                     [invocation setArgument:&valObj atIndex:i];
                     break;
                 }
-                if ([(JSValue *)arguments[i-2] hasProperty:@"__isBlock"]) {
-                    __autoreleasing id cb = genCallbackBlock(arguments[i-2]);
+                if ([(JSValue *)arguments[i-2] hasProperty:@"__isBlock"]) {   //如果参数是block
+                    __autoreleasing id cb = genCallbackBlock(arguments[i-2]);    //转化成为ocblock
                     [invocation setArgument:&cb atIndex:i];
                 } else {
                     [invocation setArgument:&valObj atIndex:i];
@@ -1045,10 +1047,10 @@ static id callSelector(NSString *className, NSString *selectorName, JSValue *arg
             }
         }
     }
-    const char *returnType = [methodSignature methodReturnType];
+    const char *returnType = [methodSignature methodReturnType];   //方法返回值类型编码
     id returnValue;
-    if (strncmp(returnType, "v", 1) != 0) {
-        if (strncmp(returnType, "@", 1) == 0) {
+    if (strncmp(returnType, "v", 1) != 0) {   //返回值不为空  strncmp()函数的作用是比较参数1和参数2的前参数3个字符是否相等，相等返回0，不相等返回非0
+        if (strncmp(returnType, "@", 1) == 0) {   //返回值是一个对象
             void *result;
             [invocation getReturnValue:&result];
             
@@ -1061,7 +1063,7 @@ static id callSelector(NSString *className, NSString *selectorName, JSValue *arg
             }
             return formatOCToJS(returnValue);
             
-        } else {
+        } else {   //如返回值不是对象
             switch (returnType[0] == 'r' ? returnType[1] : returnType[0]) {
                     
                 #define JP_CALL_RET_CASE(_typeString, _type) \
@@ -1151,10 +1153,10 @@ static id genCallbackBlock(JSValue *jsVal)
 #define BLK_DEFINE_2 cb = ^id(void *p0, void *p1) {
 #define BLK_DEFINE_3 cb = ^id(void *p0, void *p1, void *p2) {
 #define BLK_DEFINE_4 cb = ^id(void *p0, void *p1, void *p2, void *p3) {
-#define BLK_INIT_PARAMETERS NSMutableArray *list = [[NSMutableArray alloc] init];
+#define BLK_INIT_PARAMETERS NSMutableArray *list = [[NSMutableArray alloc] init];   //声明可变数组
     
-#define BLK_ADD_OBJ(_paramName) [list addObject:formatOCToJS((__bridge id)_paramName)];
-#define BLK_ADD_INT(_paramName) [list addObject:formatOCToJS([NSNumber numberWithLongLong:(long long)_paramName])];
+#define BLK_ADD_OBJ(_paramName) [list addObject:formatOCToJS((__bridge id)_paramName)];   //引用类型
+#define BLK_ADD_INT(_paramName) [list addObject:formatOCToJS([NSNumber numberWithLongLong:(long long)_paramName])];   //基本类型
 
 #define BLK_TRAITS_ARG(_idx, _paramName) \
     if (blockTypeIsObject(trim(argTypes[_idx]))) {  \
@@ -1168,14 +1170,30 @@ static id genCallbackBlock(JSValue *jsVal)
     return formatJSToOC(ret); \
 };
 
-    NSArray *argTypes = [[jsVal[@"args"] toString] componentsSeparatedByString:@","];
-    NSInteger count = argTypes.count;
+    NSArray *argTypes = [[jsVal[@"args"] toString] componentsSeparatedByString:@","];  //block参数类型列表
+    NSInteger count = argTypes.count;    //block参数个数
     id cb;
     if (count == 1) {
-        BLK_DEFINE_1
-        BLK_INIT_PARAMETERS
-        BLK_TRAITS_ARG(0, p0)
-        BLK_END
+//        BLK_DEFINE_1
+//        BLK_INIT_PARAMETERS
+//        BLK_TRAITS_ARG(0, p0)
+//        BLK_END
+        
+        /**
+         *  为方便阅读，把宏的写法直接换成正常代码
+         */
+        cb = ^id(void *p0) {
+            
+            NSMutableArray *list = [[NSMutableArray alloc] init];
+            if (blockTypeIsObject(trim(argTypes[0]))) {
+                
+                [list addObject:formatOCToJS((__bridge id)p0)];
+            } else {
+                [list addObject:formatOCToJS([NSNumber numberWithLongLong:(long long)p0])];
+            }
+            JSValue *ret = [jsVal[@"cb"] callWithArguments:list];
+            return formatJSToOC(ret);
+        };
     }
     if (count == 2) {
         BLK_DEFINE_2
@@ -1380,11 +1398,14 @@ static NSString *extractStructName(NSString *typeEncodeString)
 
 static NSString *trim(NSString *string)
 {
+    // 去除字符串中的空格
     return [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
+
 static BOOL blockTypeIsObject(NSString *typeString)
 {
+    //判断blcok参数类型是否是引用类型
     return [typeString rangeOfString:@"*"].location != NSNotFound || [typeString isEqualToString:@"id"];
 }
 

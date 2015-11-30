@@ -24,6 +24,17 @@
 		36F0DC761BF6D00E0090EA4A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F0DC751BF6D00E0090EA4A /* libz.tbd */; };
 		36F0DC791BF6D5D20090EA4A /* JPLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F0DC781BF6D5D20090EA4A /* JPLoader.m */; };
 		3E18C4C01BFC5584003B1594 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E18C4BF1BFC5584003B1594 /* Default-568h@2x.png */; };
+		3EBE77BF1C0AAA34007AC267 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EBE77A51C0AAA34007AC267 /* Info.plist */; };
+		3EBE77C01C0AAA34007AC267 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77A71C0AAA34007AC267 /* MASCompositeConstraint.m */; };
+		3EBE77C11C0AAA34007AC267 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77AA1C0AAA34007AC267 /* MASConstraint.m */; };
+		3EBE77C21C0AAA34007AC267 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77AC1C0AAA34007AC267 /* MASConstraintMaker.m */; };
+		3EBE77C31C0AAA34007AC267 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77AE1C0AAA34007AC267 /* MASLayoutConstraint.m */; };
+		3EBE77C41C0AAA34007AC267 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77B21C0AAA34007AC267 /* MASViewAttribute.m */; };
+		3EBE77C51C0AAA34007AC267 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77B41C0AAA34007AC267 /* MASViewConstraint.m */; };
+		3EBE77C61C0AAA34007AC267 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77B61C0AAA34007AC267 /* NSArray+MASAdditions.m */; };
+		3EBE77C71C0AAA34007AC267 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77B91C0AAA34007AC267 /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		3EBE77C81C0AAA34007AC267 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77BB1C0AAA34007AC267 /* View+MASAdditions.m */; };
+		3EBE77C91C0AAA34007AC267 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE77BE1C0AAA34007AC267 /* ViewController+MASAdditions.m */; };
 		3F6C38EB1B4A37D600F88662 /* JPMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6C38EA1B4A37D600F88662 /* JPMemory.m */; };
 		DE58B6481B7C312800F64C63 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE58B6471B7C312800F64C63 /* JavaScriptCore.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DE6FFEED1B4243500005EE83 /* JPInclude.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6FFEEB1B4243500005EE83 /* JPInclude.m */; };
@@ -90,6 +101,32 @@
 		36F0DC771BF6D5D20090EA4A /* JPLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPLoader.h; sourceTree = "<group>"; };
 		36F0DC781BF6D5D20090EA4A /* JPLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPLoader.m; sourceTree = "<group>"; };
 		3E18C4BF1BFC5584003B1594 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		3EBE77A51C0AAA34007AC267 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EBE77A61C0AAA34007AC267 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
+		3EBE77A71C0AAA34007AC267 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
+		3EBE77A81C0AAA34007AC267 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
+		3EBE77A91C0AAA34007AC267 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
+		3EBE77AA1C0AAA34007AC267 /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
+		3EBE77AB1C0AAA34007AC267 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
+		3EBE77AC1C0AAA34007AC267 /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
+		3EBE77AD1C0AAA34007AC267 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
+		3EBE77AE1C0AAA34007AC267 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
+		3EBE77AF1C0AAA34007AC267 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+		3EBE77B01C0AAA34007AC267 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
+		3EBE77B11C0AAA34007AC267 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
+		3EBE77B21C0AAA34007AC267 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+		3EBE77B31C0AAA34007AC267 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
+		3EBE77B41C0AAA34007AC267 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
+		3EBE77B51C0AAA34007AC267 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		3EBE77B61C0AAA34007AC267 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		3EBE77B71C0AAA34007AC267 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		3EBE77B81C0AAA34007AC267 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		3EBE77B91C0AAA34007AC267 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		3EBE77BA1C0AAA34007AC267 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+		3EBE77BB1C0AAA34007AC267 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
+		3EBE77BC1C0AAA34007AC267 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		3EBE77BD1C0AAA34007AC267 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		3EBE77BE1C0AAA34007AC267 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		3F6C38E91B4A37D600F88662 /* JPMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMemory.h; sourceTree = "<group>"; };
 		3F6C38EA1B4A37D600F88662 /* JPMemory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMemory.m; sourceTree = "<group>"; };
 		DE58B6471B7C312800F64C63 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -232,6 +269,39 @@
 			path = minizip;
 			sourceTree = "<group>";
 		};
+		3EBE77A41C0AAA34007AC267 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				3EBE77A51C0AAA34007AC267 /* Info.plist */,
+				3EBE77A61C0AAA34007AC267 /* MASCompositeConstraint.h */,
+				3EBE77A71C0AAA34007AC267 /* MASCompositeConstraint.m */,
+				3EBE77A81C0AAA34007AC267 /* MASConstraint+Private.h */,
+				3EBE77A91C0AAA34007AC267 /* MASConstraint.h */,
+				3EBE77AA1C0AAA34007AC267 /* MASConstraint.m */,
+				3EBE77AB1C0AAA34007AC267 /* MASConstraintMaker.h */,
+				3EBE77AC1C0AAA34007AC267 /* MASConstraintMaker.m */,
+				3EBE77AD1C0AAA34007AC267 /* MASLayoutConstraint.h */,
+				3EBE77AE1C0AAA34007AC267 /* MASLayoutConstraint.m */,
+				3EBE77AF1C0AAA34007AC267 /* Masonry.h */,
+				3EBE77B01C0AAA34007AC267 /* MASUtilities.h */,
+				3EBE77B11C0AAA34007AC267 /* MASViewAttribute.h */,
+				3EBE77B21C0AAA34007AC267 /* MASViewAttribute.m */,
+				3EBE77B31C0AAA34007AC267 /* MASViewConstraint.h */,
+				3EBE77B41C0AAA34007AC267 /* MASViewConstraint.m */,
+				3EBE77B51C0AAA34007AC267 /* NSArray+MASAdditions.h */,
+				3EBE77B61C0AAA34007AC267 /* NSArray+MASAdditions.m */,
+				3EBE77B71C0AAA34007AC267 /* NSArray+MASShorthandAdditions.h */,
+				3EBE77B81C0AAA34007AC267 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				3EBE77B91C0AAA34007AC267 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				3EBE77BA1C0AAA34007AC267 /* View+MASAdditions.h */,
+				3EBE77BB1C0AAA34007AC267 /* View+MASAdditions.m */,
+				3EBE77BC1C0AAA34007AC267 /* View+MASShorthandAdditions.h */,
+				3EBE77BD1C0AAA34007AC267 /* ViewController+MASAdditions.h */,
+				3EBE77BE1C0AAA34007AC267 /* ViewController+MASAdditions.m */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
 		DE6FFEE71B4243500005EE83 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +323,7 @@
 			children = (
 				3E18C4BF1BFC5584003B1594 /* Default-568h@2x.png */,
 				36F0DC751BF6D00E0090EA4A /* libz.tbd */,
+				3EBE77A41C0AAA34007AC267 /* Masonry */,
 				DE58B6471B7C312800F64C63 /* JavaScriptCore.framework */,
 				2D5D89161B0B8BFF009382EC /* JSPatchDemo */,
 				DE94AE271AF246C000E461D4 /* JSPatchTests */,
@@ -416,6 +487,7 @@
 			files = (
 				DE6FFF051B42C25D0005EE83 /* protocolTest.js in Resources */,
 				2D5D892E1B0B8C3B009382EC /* JSPatch.js in Resources */,
+				3EBE77BF1C0AAA34007AC267 /* Info.plist in Resources */,
 				2D6D12FD1B0B8CF20095A435 /* Images.xcassets in Resources */,
 				2D6D13011B0B8CFF0095A435 /* demo.js in Resources */,
 				3E18C4C01BFC5584003B1594 /* Default-568h@2x.png in Resources */,
@@ -448,23 +520,33 @@
 				DEE3D2C51B7CD1DC00D73DF1 /* JPUIKit.m in Sources */,
 				2D5D892D1B0B8C3B009382EC /* JPEngine.m in Sources */,
 				E1B89EA01B203482000645C2 /* JPMultithreadTestObject.m in Sources */,
+				3EBE77C81C0AAA34007AC267 /* View+MASAdditions.m in Sources */,
 				DEE3D29D1B7CC11700D73DF1 /* JPStructPointer.m in Sources */,
 				DEE3D2B11B7CC5D200D73DF1 /* JPCGColor.m in Sources */,
 				36F0DC791BF6D5D20090EA4A /* JPLoader.m in Sources */,
+				3EBE77C21C0AAA34007AC267 /* MASConstraintMaker.m in Sources */,
+				3EBE77C61C0AAA34007AC267 /* NSArray+MASAdditions.m in Sources */,
+				3EBE77C51C0AAA34007AC267 /* MASViewConstraint.m in Sources */,
 				DEE3D2C31B7CD1DC00D73DF1 /* JPUIGraphics.m in Sources */,
 				2D5D89251B0B8BFF009382EC /* JPViewController.m in Sources */,
 				36F0DC6D1BF6CF5C0090EA4A /* ioapi.c in Sources */,
 				DEE3D2B51B7CC5D200D73DF1 /* JPCGPath.m in Sources */,
 				DEE3D2B61B7CC5D200D73DF1 /* JPCGTransform.m in Sources */,
+				3EBE77C91C0AAA34007AC267 /* ViewController+MASAdditions.m in Sources */,
 				36F0DC6F1BF6CF5C0090EA4A /* unzip.c in Sources */,
 				DEE3D2B01B7CC5D200D73DF1 /* JPCGBitmapContext.m in Sources */,
 				DEE3D2B21B7CC5D200D73DF1 /* JPCGContext.m in Sources */,
 				3F6C38EB1B4A37D600F88662 /* JPMemory.m in Sources */,
+				3EBE77C71C0AAA34007AC267 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				3EBE77C31C0AAA34007AC267 /* MASLayoutConstraint.m in Sources */,
 				DEE3D2B41B7CC5D200D73DF1 /* JPCGImage.m in Sources */,
 				2D6D12FF1B0B8CF20095A435 /* main.m in Sources */,
+				3EBE77C11C0AAA34007AC267 /* MASConstraint.m in Sources */,
 				DEE3D2B71B7CC5D200D73DF1 /* JPCoreGraphics.m in Sources */,
 				36F0DC701BF6CF5C0090EA4A /* zip.c in Sources */,
+				3EBE77C01C0AAA34007AC267 /* MASCompositeConstraint.m in Sources */,
 				36F0DC741BF6CFE60090EA4A /* ZipArchive.m in Sources */,
+				3EBE77C41C0AAA34007AC267 /* MASViewAttribute.m in Sources */,
 				36F0DC711BF6CF5C0090EA4A /* RSA.m in Sources */,
 				DEE3D2C41B7CD1DC00D73DF1 /* JPUIImage.m in Sources */,
 			);

@@ -15,16 +15,32 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    [JPEngine startEngine];
-//    NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"demo" ofType:@"js"];
-//    NSString *script = [NSString stringWithContentsOfFile:sourcePath encoding:NSUTF8StringEncoding error:nil];
-//    [JPEngine evaluateScript:script];
-    
-    [JPLoader updateToVersion:5 callback:^(NSError *error) {
-       
-        NSLog(@"%@", error);
-    }];
-    [JPLoader run];
+    [JPEngine startEngine];
+    NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"demo" ofType:@"js"];
+    NSString *script = [NSString stringWithContentsOfFile:sourcePath encoding:NSUTF8StringEncoding error:nil];
+    [JPEngine evaluateScript:script];
+
+//    NSInteger currentVersion = [JPLoader currentVersion];   //当前本地 appVersion 对应的 JSPatchVersion
+//    BOOL isOpenJSPatch = YES;             //是否需要 fixbug
+//    
+//    if (isOpenJSPatch) {
+//        
+//        if (currentVersion < 5) {
+//            
+//            [JPLoader updateToVersion:5 callback:^(NSError *error) {
+//                
+//                if (!error) {
+//                    
+//                    [JPLoader run];
+//                    return;
+//                }
+//                NSLog(@"%@", error);
+//            }];
+//        } else if (currentVersion > 0) {
+//            
+//            [JPLoader run];
+//        }
+//    }
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     JPViewController *rootViewController = [[JPViewController alloc] init];
