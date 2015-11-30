@@ -95,6 +95,7 @@ static NSMutableDictionary *registeredStruct;
     /**
      *  在context的执行环境下，为js增加_OC_defineClass方法对象，此js方法可以传参调用OC中的block，下面几个同理
      */
+    
     context[@"_OC_defineClass"] = ^(NSString *classDeclaration, JSValue *instanceMethods, JSValue *classMethods) {
         return defineClass(classDeclaration, instanceMethods, classMethods);
     };
@@ -778,7 +779,7 @@ static void overrideMethod(Class cls, NSString *selectorName, JSValue *function,
         Method method = class_getInstanceMethod(cls, selector);    //通过类和selector得到method
         typeDescription = (char *)method_getTypeEncoding(method);  // 获取描述方法参数和返回值类型的字符串，类型编码
     }
-    
+
     IMP originalImp = class_respondsToSelector(cls, selector) ? class_getMethodImplementation(cls, selector) : NULL;  //通过类和selector得到原方法的IMP指针
     
     /**
@@ -1412,7 +1413,7 @@ static BOOL blockTypeIsObject(NSString *typeString)
 #pragma mark - Object format
 
 /**
- *  将经过JPBoxing初步包装的OC对象转化成经JPBoxing包装的对象
+ *  obj如果是string，dictionary，array就 装箱之后通过 _wrapObj 标识对象返回； obj如果是 NSNumber 等基本数据类型或者是 JSValue 类型直接返回； 普通对象通过 _wrapObj 标识对象
  *
  *  @param obj 经过JPBoxing初步包装的OC对象
  *

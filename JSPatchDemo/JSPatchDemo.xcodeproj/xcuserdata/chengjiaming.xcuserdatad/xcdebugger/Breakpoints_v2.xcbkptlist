@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../JSPatch/JPEngine.m"
-            timestampString = "470479662.812702"
+            timestampString = "470566666.336892"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "858"
-            endingLineNumber = "858"
+            startingLineNumber = "859"
+            endingLineNumber = "859"
             landmarkName = "callSelector()"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../JSPatch/JPEngine.m"
-            timestampString = "470479870.804328"
+            timestampString = "470566666.336892"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1443"
-            endingLineNumber = "1443"
+            startingLineNumber = "1444"
+            endingLineNumber = "1444"
             landmarkName = "formatJSToOC()"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,13 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../JSPatch/JPEngine.m"
-            timestampString = "470479890.046165"
+            timestampString = "470566666.336892"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1431"
-            endingLineNumber = "1431"
-            landmarkName = "formatJSToOC()"
-            landmarkType = "7">
+            startingLineNumber = "1432"
+            endingLineNumber = "1432"
+            landmarkName = "@implementation JPEngine"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,75 +74,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../JSPatch/JPEngine.m"
-            timestampString = "470481839.284952"
+            timestampString = "470566666.336892"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1195"
-            endingLineNumber = "1195"
+            startingLineNumber = "1196"
+            endingLineNumber = "1196"
             landmarkName = "genCallbackBlock()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__genCallbackBlock_block_invoke600"
-                  moduleName = "JSPatchDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chengjiaming/Desktop/JSPatch---comment/JSPatch/JPEngine.m"
-                  timestampString = "470481839.287759"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1195"
-                  endingLineNumber = "1195"
-                  offsetFromSymbolStart = "1079">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__genCallbackBlock_block_invoke600"
-                  moduleName = "JSPatchDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chengjiaming/Desktop/JSPatch---comment/JSPatch/JPEngine.m"
-                  timestampString = "470481839.288247"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1195"
-                  endingLineNumber = "1195"
-                  offsetFromSymbolStart = "1217">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_601"
-                  moduleName = "JSPatchDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chengjiaming/Desktop/JSPatch---comment/JSPatch/JPEngine.m"
-                  timestampString = "470481839.288701"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_602"
-                  moduleName = "JSPatchDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chengjiaming/Desktop/JSPatch---comment/JSPatch/JPEngine.m"
-                  timestampString = "470481839.289137"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

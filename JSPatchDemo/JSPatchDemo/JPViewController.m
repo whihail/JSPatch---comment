@@ -19,10 +19,6 @@
     [btn setBackgroundColor:[UIColor blueColor]];
     [self.view addSubview:btn];
     
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-    }];
-    
     self.view.backgroundColor = [UIColor whiteColor];
 }
 

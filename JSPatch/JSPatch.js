@@ -6,19 +6,19 @@ var global = this
   var callbackID = 0
   
   
-  /**
-   * 将OC方法名转化成js的方法名  在此处并没有起到作用，可能作者bang哥忘记去掉啦！已经删除并 pull request，bang也merag啦
-   **/
-  var _methodNameOCToJS = function(name) {
-    name = name.replace(/\:/g, '_')   //利用正则将所有“：”字符替换成“_”
-    if (name[name.length - 1] == '_') {
-      return name.substr(0, name.length - 1)   //将方法名的最后'_'字符去除
-    }
-    return name
-  }
+//  /**
+//   * 将OC方法名转化成js的方法名  在此处并没有起到作用，可能作者 bang 忘记去掉啦！已经删除并 pull request，bang也merag啦
+//   **/
+//  var _methodNameOCToJS = function(name) {
+//    name = name.replace(/\:/g, '_')   //利用正则将所有“：”字符替换成“_”
+//    if (name[name.length - 1] == '_') {
+//      return name.substr(0, name.length - 1)   //将方法名的最后'_'字符去除
+//    }
+//    return name
+//  }
 
   /**
-   * 将OC对象遍历 format 为js对象
+   * 将 OC 对象遍历 format 为js对象
    **/
   var _formatOCToJS = function(obj) {
     if (obj === undefined || obj === null) return false
@@ -79,7 +79,10 @@ var global = this
 
   
   /**
-   * 为Object对象增加“__c”属性，__c默认值为value键所对应的值，既function(methodName){}
+   * 为Object对象增加“__c”属性，
+   * __c默认值为value键所对应的值，既function(methodName){}。
+   * configurable:  如果为false，则任何尝试删除目标属性或修改属性以下特性（writable, configurable, enumerable）的行为将被无效化。
+   * enumerable:    是否能在for...in循环中遍历出来或在Object.keys中列举出来。
    */
   Object.defineProperty(Object.prototype, "__c", {value: function(methodName) {
     if (this instanceof Boolean) {
