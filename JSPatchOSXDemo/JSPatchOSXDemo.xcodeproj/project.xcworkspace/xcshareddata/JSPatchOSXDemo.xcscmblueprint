@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F5BE036E68844D7DA0FD3215544E9E2E17899635",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0104904A6E66B3737E89F93E333177FA001D0B29" : 0,
+    "F5BE036E68844D7DA0FD3215544E9E2E17899635" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "25514797-0E2D-431F-96D8-552A40E0C974",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0104904A6E66B3737E89F93E333177FA001D0B29" : "JSPatch",
+    "F5BE036E68844D7DA0FD3215544E9E2E17899635" : "JSPatch---comment\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "JSPatchOSXDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "JSPatchOSXDemo\/JSPatchOSXDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lemonmojo\/JSPatch.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0104904A6E66B3737E89F93E333177FA001D0B29"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/chengjiaming\/JSPatch---comment.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F5BE036E68844D7DA0FD3215544E9E2E17899635"
+    }
+  ]
+}
